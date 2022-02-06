@@ -1,6 +1,7 @@
 # ConfigServer Security & Firewall (CSF)
 
-ConfigServer Security & Firewall (CSF) is a Firewall software installed on your server to keep it secure. It provides an
+**ConfigServer Security & Firewall (CSF)** is a Firewall software installed on your server to keep it secure. It 
+provides an
 advanced and easy-to-use web-based interface to manage firewall settings. You can also manage your firewall
 settings/configuration via the Secure Shell.
 
