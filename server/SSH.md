@@ -2,7 +2,7 @@
 **SSH or Secure Shell** is a network communication protocol that enables two computers to communicate (c.f http or hypertext transfer 
   protocol, which is the protocol used to transfer hypertext such as web pages) and share data. An inherent feature of ssh is that the communication between the two computers is encrypted meaning that it is suitable for use on insecure networks.
 
-SSH clients will typically support SCP (Secure Copy) and/or SFTP (SSH File Transfer Protocol) for transferring data
+SSH clients will typically support **SCP (Secure Copy)** and/or **SFTP (SSH File Transfer Protocol)** for transferring data
 
 
 ## Change SSH port on _Control Web Panel (CWP)_
