@@ -13,23 +13,33 @@
 
 ```js
 // ========== Set item ==========
-localStorage.setItem('name', 'Masoud Karimi');
-localStorage.name = 'Masoud Karimi';
+localStorage.setItem('name', 'Masoud Karimi')
+localStorage.name = 'Masoud Karimi'
 localStorage['name'] = 'Masoud Karimi'
+
+
 
 // ========== Get item ==========
 console.log(localStorage.getItem('name')) // Masoud Karimi
 console.log(localStorage.name) // Masoud Karimi
 console.log(localStorage['name']) // Masoud Karimi
 
+
+
 // ========== Remove item ========== 
 localStorage.removeItem('name')
+
+
 
 // ========== Clear all items ========== 
 localStorage.clear()
 
+
+
 // ========== Key ========== 
 console.log(localStorage.key(0)) // name
+
+
 
 // ========== Example ==========
 let colors = ['red', 'green', 'blue']
@@ -37,10 +47,10 @@ localStorage.setItem('colors', colors)
 console.log(localStorage.getItem('colors')) // Return string => red,green,blue
 
 // This is true way
-let colors = ['red', 'green', 'blue'];
+let colors = ['red', 'green', 'blue']
 localStorage.setItem('colors', JSON.stringify(colors))
-console.log(localStorage.getItem('colors')); // Return string => red,green,blue
-console.log(JSON.parse(localStorage.getItem('colors'))); // Return Array => ['red', 'green', 'blue']
+console.log(localStorage.getItem('colors')) // Return string => red,green,blue
+console.log(JSON.parse(localStorage.getItem('colors'))) // Return Array => ['red', 'green', 'blue']
 ```
 
 ## Session storage
@@ -53,22 +63,32 @@ console.log(JSON.parse(localStorage.getItem('colors'))); // Return Array => ['re
 ```js
 // ========== Set item ==========
 sessionStorage.setItem('name', 'John Doe')
-sessionStorage.name = 'John Doe';
+sessionStorage.name = 'John Doe'
 sessionStorage['name'] = 'John Doe'
+
+
 
 // ========== Get item ==========
 console.log(sessionStorage.getItem('name'))
 console.log(sessionStorage.name)
 console.log(sessionStorage['name'])
 
+
+
 // ========== Remove item ==========
 sessionStorage.removeItem('name')
+
+
 
 // ========== Clear all items ==========
 sessionStorage.clear()
 
+
+
 // ========== Key ==========
 console.log(sessionStorage.key(0))
+
+
 
 // ========== Example ==========
 let colors = ['red', 'green', 'blue']
@@ -80,4 +100,90 @@ let colors = ['red', 'green', 'blue']
 sessionStorage.setItem('colors', JSON.stringify(colors))
 console.log(sessionStorage.getItem('colors')) // Return string
 console.log(JSON.parse(sessionStorage.getItem('colors'))) // Return Array 
+```
+
+## Cookie
+
+- Cookie saved to the browser until you removed
+- In each request, cookies are sent to the server
+- The server and client have access to the cookie -> The server can access CURD data
+- Store 4 KB per resource
+
+```js
+// ========== Show all cookies ==========
+console.log(document.cookie) // Return all cookies
+
+
+
+// ========== Set cookie ==========
+const setCookie = ({name, value, days, path}) => {
+    let date = new Date()
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 + 1000)) // 1 day
+    let expires = `expires=${date.toUTCString()}`
+    let cookiePath = `path=${path}`
+
+    document.cookie = `${name}=${value}; ${expires}; ${cookiePath};`
+}
+
+setCookie({name: 'name', value: 'Masoud', days: 1, path: '/'})
+setCookie({name: 'family', value: 'Karimi', days: 1, path: '/'})
+
+
+
+// ========== Get cookie ==========
+const getCookie = ({name}) => {
+    let cookieName = `${name}=`
+    let cookies = document.cookie.split(';')
+
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i]
+
+        while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1)
+        }
+
+        if (cookie.indexOf(cookieName) == 0) {
+            return cookie.substring(cookieName.length, cookie.length)
+        }
+    }
+    return ''
+}
+
+getCookie({name: 'name'}) // Return 'Masoud'
+getCookie({name: 'family'}) // Return 'Karimi'
+
+
+
+// ========== Check cookie ==========
+const checkCookie = ({name}) => {
+    let cookie = getCookie({name})
+
+    if (cookie != '') {
+        return true
+    } else {
+        return false
+    }
+}
+
+checkCookie({name: 'name'}) // Return true
+checkCookie({name: 'family'}) // Return true
+
+
+
+// ========== Delete cookie ==========
+const deleteCookie = ({name}) => {
+    let cookieValue = getCookie({name})
+
+    if (cookieValue != '') {
+        let date = new Date()
+        date.setTime(date.getTime() - (24 * 60 * 60 + 1000)) // 1 day
+        let expires = `expires=${date.toUTCString()}`
+        let path = `path=/`
+
+        document.cookie = `${name}=${cookieValue}; ${expires}; ${path};`
+    }
+}
+
+deleteCookie({name: 'name'})
+deleteCookie({name: 'family'})
 ```
