@@ -18,27 +18,22 @@ localStorage.name = 'Masoud Karimi'
 localStorage['name'] = 'Masoud Karimi'
 
 
-
 // ========== Get item ==========
 console.log(localStorage.getItem('name')) // Masoud Karimi
 console.log(localStorage.name) // Masoud Karimi
 console.log(localStorage['name']) // Masoud Karimi
 
 
-
 // ========== Remove item ========== 
 localStorage.removeItem('name')
-
 
 
 // ========== Clear all items ========== 
 localStorage.clear()
 
 
-
 // ========== Key ========== 
 console.log(localStorage.key(0)) // name
-
 
 
 // ========== Example ==========
@@ -67,27 +62,22 @@ sessionStorage.name = 'John Doe'
 sessionStorage['name'] = 'John Doe'
 
 
-
 // ========== Get item ==========
 console.log(sessionStorage.getItem('name'))
 console.log(sessionStorage.name)
 console.log(sessionStorage['name'])
 
 
-
 // ========== Remove item ==========
 sessionStorage.removeItem('name')
-
 
 
 // ========== Clear all items ==========
 sessionStorage.clear()
 
 
-
 // ========== Key ==========
 console.log(sessionStorage.key(0))
-
 
 
 // ========== Example ==========
@@ -114,7 +104,6 @@ console.log(JSON.parse(sessionStorage.getItem('colors'))) // Return Array
 console.log(document.cookie) // Return all cookies
 
 
-
 // ========== Set cookie ==========
 const setCookie = ({name, value, days, path}) => {
     let date = new Date()
@@ -127,7 +116,6 @@ const setCookie = ({name, value, days, path}) => {
 
 setCookie({name: 'name', value: 'Masoud', days: 1, path: '/'})
 setCookie({name: 'family', value: 'Karimi', days: 1, path: '/'})
-
 
 
 // ========== Get cookie ==========
@@ -153,7 +141,6 @@ getCookie({name: 'name'}) // Return 'Masoud'
 getCookie({name: 'family'}) // Return 'Karimi'
 
 
-
 // ========== Check cookie ==========
 const checkCookie = ({name}) => {
     let cookie = getCookie({name})
@@ -167,7 +154,6 @@ const checkCookie = ({name}) => {
 
 checkCookie({name: 'name'}) // Return true
 checkCookie({name: 'family'}) // Return true
-
 
 
 // ========== Delete cookie ==========
@@ -187,3 +173,31 @@ const deleteCookie = ({name}) => {
 deleteCookie({name: 'name'})
 deleteCookie({name: 'family'})
 ```
+
+## Storage Event
+
+- Any change we make to local storage will call the storage event to all tabs in that domain except the current tab in
+  the browser
+- The Storage event is used to synchronize status on different tabs
+
+```js
+localStorage.setItem('colors', ['red', 'green', 'blue'])
+window.addEventListener('storage', (e) => {
+    console.log(
+        `The value for ${e.key} was changed from ${e.oldValue} to ${
+            e.newValue
+        } in ${e.url} and ${JSON.stringify(e.storageArea)}`
+    )
+})
+
+// or
+
+window.onstorage = (e) => {
+    console.log(
+        `The value for ${e.key} was changed from ${e.oldValue} to ${
+            e.newValue
+        } in ${e.url} and ${JSON.stringify(e.storageArea)}`
+    )
+}
+```
+
