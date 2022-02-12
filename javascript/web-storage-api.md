@@ -3,6 +3,13 @@
 - In JavaScript, data is stored as a string
 - In JavaScript, each character takes up 2 bytes of space
 
+# Table of contents
+
+- [Local storage](#local-storage)
+- [Session storage](#session-storage)
+- [Storage event](#storage-event)
+- [IndexDB](#indexeddb)
+
 ## Local storage
 
 - Local storage saved to the browser until you removed
@@ -48,6 +55,8 @@ console.log(localStorage.getItem('colors')) // Return string => red,green,blue
 console.log(JSON.parse(localStorage.getItem('colors'))) // Return Array => ['red', 'green', 'blue']
 ```
 
+**[⬆ back to top](#table-of-contents)**
+
 ## Session storage
 
 - The Session storage is saved in the browser until the tab or browser is closed
@@ -91,6 +100,8 @@ sessionStorage.setItem('colors', JSON.stringify(colors))
 console.log(sessionStorage.getItem('colors')) // Return string
 console.log(JSON.parse(sessionStorage.getItem('colors'))) // Return Array 
 ```
+
+**[⬆ back to top](#table-of-contents)**
 
 ## Cookie
 
@@ -174,6 +185,8 @@ deleteCookie({name: 'name'})
 deleteCookie({name: 'family'})
 ```
 
+**[⬆ back to top](#table-of-contents)**
+
 ## Storage Event
 
 - Any change we make to local storage will call the storage event to all tabs in that domain except the current tab in
@@ -201,6 +214,7 @@ window.onstorage = (e) => {
 }
 ```
 
+**[⬆ back to top](#table-of-contents)**
 
 ## IndexedDB
 
