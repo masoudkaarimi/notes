@@ -201,3 +201,7 @@ window.onstorage = (e) => {
 }
 ```
 
+
+## IndexedDB
+
+- Like NoSQL database
