@@ -25,6 +25,8 @@ requests to Web servers, which in turn handle the requests via an HTTP service
 
 ## HTTP methods
 
+**[⬆ back to top](#table-of-contents)**
+
 ### The GET Method
 
 - GET is used to request data from a specified resource.
@@ -41,6 +43,8 @@ Example - `/test/demo_form.php?name1=value1&name2=value2`
     - GET requests have length restrictions
     - GET requests are only used to request data (not modify)
 
+**[⬆ back to top](#table-of-contents)**
+
 ### The POST Method
 
 - POST is used to send data to a server to create/update a resource.
@@ -54,6 +58,8 @@ Example - `/test/demo_form.php?name1=value1&name2=value2`
     - POST requests cannot be bookmarked
     - POST requests have no restrictions on data length
 
+**[⬆ back to top](#table-of-contents)**
+
 ### The PUT Method
 
 - PUT is used to send data to a server to create/update a resource.
@@ -61,6 +67,8 @@ Example - `/test/demo_form.php?name1=value1&name2=value2`
 - The difference between POST and PUT is that PUT requests are idempotent. That is, calling the same PUT request
   multiple times will always produce the same result. In contrast, calling a POST request repeatedly have side effects
   of creating the same resource multiple times.
+
+**[⬆ back to top](#table-of-contents)**
 
 ### The HEAD Method
 
@@ -70,15 +78,21 @@ Example - `/test/demo_form.php?name1=value1&name2=value2`
 - HEAD requests are useful for checking what a GET request will return before actually making a GET request - like
   before downloading a large file or response body.
 
+**[⬆ back to top](#table-of-contents)**
+
 ### The DELETE Method
 
 - The DELETE method deletes the specified resource.
+
+**[⬆ back to top](#table-of-contents)**
 
 ### The OPTIONS Method
 
 - The OPTIONS method describes the communication options for the target resource.
 
 ## HTTP status code and messages
+
+**[⬆ back to top](#table-of-contents)**
 
 ### 1xx: Information
 
@@ -87,6 +101,8 @@ Example - `/test/demo_form.php?name1=value1&name2=value2`
 | 100  | Continue            | The server has received the request headers, and the client should proceed to send the request body |
 | 101  | Switching Protocols | The requester has asked the server to switch protocols                                              |
 | 103  | Checkpoint          | Used in the resumable requests proposal to resume aborted PUT or POST requests                      |
+
+**[⬆ back to top](#table-of-contents)**
 
 ### 2xx: Successful
 
@@ -100,6 +116,7 @@ Example - `/test/demo_form.php?name1=value1&name2=value2`
 | 205  | Reset Content                  | The request has been successfully processed, but is not returning any content, and requires that the requester reset the document view |
 | 206  | Partial Content                | The server is delivering only part of the resource due to a range header sent by the client                                            |
 
+**[⬆ back to top](#table-of-contents)**
 
 ### 3xx: Redirection
 
@@ -114,6 +131,7 @@ Example - `/test/demo_form.php?name1=value1&name2=value2`
 | 307  | Temporary Redirect  | The requested page has moved temporarily to a new URL                                   |
 | 308  | Resume Incomplete   | Used in the resumable requests proposal to resume aborted PUT or POST requests          |
 
+**[⬆ back to top](#table-of-contents)**
 
 ### 4xx: Client Error
 
@@ -138,6 +156,7 @@ Example - `/test/demo_form.php?name1=value1&name2=value2`
 | 416  | Requested Range Not Satisfiable  | The client has asked for a portion of the file, but the server cannot supply that portion                                                                     |
 | 417  | Expectation Failed               | The server cannot meet the requirements of the Expect request-header field                                                                                    |
 
+**[⬆ back to top](#table-of-contents)**
 
 ### 5xx: Server Error
 
