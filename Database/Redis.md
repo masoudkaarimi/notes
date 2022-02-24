@@ -1,7 +1,7 @@
 # Redis
 
 Redis is a fast in-memory database and cache, open source under a BSD license, written in C and optimized for speed.
-Redis’ name comes from “REmote DIctionary Server”.
+Redis’ name comes from "**RE**mote **DI**ctionary **S**erver".
 
 Redis is often called a data structure server because its core data types are similar to those found in programming
 languages like strings, lists, dictionaries (or hashes), sets, and sorted sets. It also provides many other data
